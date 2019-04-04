@@ -12,6 +12,16 @@ def html_editor1(request):
     }
     return render(request, 'htmlapp/html_editor1.html', context)
 
+def html_study_list(request):
+    context = {
+
+    }
+    return render(request, 'htmlapp/_html_study_list.html', context)
+
+def html_editor_include(request):
+    return render(request, 'htmlapp/html_editor_include.html')
+
+
 def iframe_test(request):
     pass
 

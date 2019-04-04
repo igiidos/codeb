@@ -7,12 +7,12 @@
 
 {% block style %}
     <style>
-    pre code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: 20px;
-}
+        pre  {
+            background-color: #eee;
+            border: 1px solid #999;
+            display: block;
+            padding: 20px;
+        }
     </style>
 {% endblock %}
 
@@ -20,32 +20,32 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div class="container-fluid pt-4">
         <div class="row mt-5">
             <div class="col-sm-12 col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">HTML 코스</h5>
+                        <h5 class="card-title text-secondary">HTML 코스</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{% url 'html_editor1' %}" class="btn btn-secondary">배우러가기</a>
+                        <a href="{% url 'html_study_list' %}" class="btn purple-gradient-rgba text-white">배우러가기</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">CSS 코스</h5>
+                        <h5 class="card-title text-secondary">CSS 코스</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{% url 'css_test' %}" class="btn btn-secondary">배우러가기</a>
+                        <a href="{% url 'css_study_list' %}" class="btn purple-gradient-rgba text-white">배우러가기</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">JavaScript 코스</h5>
+                        <h5 class="card-title text-secondary">JavaScript 코스</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{% url 'js_test' %}" class="btn btn-secondary">배우러가기</a>
+                        <a href="{% url 'js_study_list' %}" class="btn purple-gradient-rgba text-white">배우러가기</a>
                     </div>
                 </div>
             </div>
@@ -53,26 +53,13 @@
         </div>
         <div class="row mt-5">
             <div class="col-12">
-                <p class="font-weight-bold text-center">위 버튼을 누르면 이동하는 페이지는 제가 임시 테스트로 생성한 것들이니 해당 파일은 놔두고 신규생성 해서 작성 하시기 바랍니다.</p>
-                <p class="small muted text-center">나중에 신규파일 작성 하신 후 삭제 처리 할 예정입니다.</p>
-                <p class="small muted text-center">간단한 유져 인증까지 완료가 되었습니다.</p>
-                <p class="small muted text-center">동작이 잘 되는 한 싸이클이 완성이 되면 카톡으로 url name값 알려주시면 위 버턴에 적용하겠습니다.</p>
-                <span>
-                    서로 환경이 다르기 때문에 git에는 가상환경폴더를 올리지 않습니다.
-                    그렇기 때문에 깃에서 받으면 프로젝트 최상단(루트)에서 반드시 가상환경을 생성하셔야 하고
-                    파이참에서 새로만든 가상환경을 바인딩을 시켜줘야 합니다. 바인딩 모르시면 카톡으로 물어보시면됩니다,
-                    가상환경 진입 후 requirements.txt안에 있는 것들을 전부 설치 해줘야 합니다.
-                    (가상환경) pip install -r requirements.txt
+                <div class="alert alert-primary" role="alert">각 코스별 내부 리스트 페이지를 각 앱 내부에 추가 하였습니다. js_study_list | css_study_list | html_study_list 이런식으로 나누어 놓았으니 이제부터는 각자 추가되는 페이지를 해당 내부 페이지에서 자유롭게 관리 하시기 바랍니다.</div>
+                <div class="alert alert-primary" role="alert">디자인 라이브러리를 변경해 봤습니다. <a href="https://mdbootstrap.com/docs/jquery/css/text-color/" target="_blank">MDBootstrap</a>사용법은 부트스르랩이랑 똑같습니다. 다만 기능이 더 많으니 링크를 통해 보시기 바랍니다.</div>
 
-                </span>
             </div>
 
-            <div class="col-7 mx-auto my-5">
-                {% if markup.markup_text %}
-                {{ markup.markup_text | safe }}
-                    {% else %}
-                    <p class="text-center">index Markup에 내용이 없습니다.</p>
-                {% endif %}
+            <div class="col-7 mx-auto my-5 rgba-blue-grey-light">
+                <h1><span style="font-size: 25px;"><b>간단한 순서설명1</b></span></h1><p><br></p><ol><li>Git에서 코드 받아오면</li><li> 루트디렉토리안에 가상환경을 생성 후</li><li> 가상환경 진입</li><li> -requirements.txt 설치</li><li>슈퍼유저생성</li></ol><pre><p>#맥 기준</p><p>$ python3 -m venv myvenv</p><p>$ source myvenv/bin/activate</p><p>(myvenv)$ pip install -r requirements.txt</p><p>(myvenv)$ python3 manage.py createsuperuser</p><p><br></p><p># 윈도우 기준</p><p>루트&gt; python -m venv myvenv</p><p>루트&gt; myvenv/Script/activate</p><p>(myvenv)&gt; pip install -r requirements.txt</p><p>(myvenv)&gt; python manage.py createsuperuser</p></pre><p><br></p><p><br></p><p><br></p>
             </div>
 
         </div>

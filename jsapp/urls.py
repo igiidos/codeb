@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
     path('js_test/', views.js_test, name='js_test'),
     path('lesson1/', views.lesson, name='js_lesson'),
+    path('js_study_list/', views.js_study_list, name='js_study_list'),
 ]

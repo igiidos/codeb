@@ -9,3 +9,9 @@ def css_test(request):
     }
     return render(request, 'cssapp/css_test.html', context)
 
+
+def css_study_list(request):
+    context = {
+
+    }
+    return render(request, 'cssapp/_css_study_list.html', context)

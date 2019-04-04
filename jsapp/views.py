@@ -15,3 +15,10 @@ def lesson(request):
     }
     return render(request, 'jsapp/lesson1.html', context)
 
+
+
+def js_study_list(request):
+    context = {
+
+    }
+    return render(request, 'jsapp/_js_study_list.html', context)

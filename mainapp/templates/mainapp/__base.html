@@ -1,26 +1,35 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
     {% block title %}
         <title>Code Academy Study</title>
     {% endblock %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/bootstrap.min.css' %}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/mdb.min.css' %}">
+    <!-- 커스텀 스타일 -->
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/style.css' %}">
 
     {% block style %}
+
     {% endblock %}
 
 </head>
-<body>
+<body class="">
 {% block script_1 %}
+
 {% endblock %}
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand text-secondary" href="{% url 'index' %}"><i class="fas fa-code"></i> Code Academy Study</a>
+<nav class="navbar navbar-expand-lg fixed-top scroll navbar-dark purple-gradient scrolling-navbar" id="custom_nav">
+    <a class="navbar-brand text-white" href="{% url 'index' %}"><i class="fas fa-code"></i> Code Academy Study</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,39 +47,60 @@
 
         </ul>
         <ul class="navbar-nav ml-auto">
+            {#        <div class="btn-group">#}
+            {#  <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"#}
+            {#    aria-expanded="false">#}
+            {#    Small button#}
+            {#  </button>#}
+            {#  <div class="dropdown-menu">#}
+            {#    <a class="dropdown-item" href="#">Action</a>#}
+            {#    <a class="dropdown-item" href="#">Another action</a>#}
+            {#    <a class="dropdown-item" href="#">Something else here</a>#}
+            {#    <div class="dropdown-divider"></div>#}
+            {#    <a class="dropdown-item" href="#">Separated link</a>#}
+            {#  </div>#}
+            {#</div>#}
 
             {% if user.is_authenticated %}
                 <li class="nav-item">
-                <a href="#" class="btn btn-warning mr-3 rounded-pill">Upgrade Account</a>
-            </li>
-            <li class="nav-item dropdown mr-4">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hello {{ user }}!
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'profile' %}">프로필</a>
-                    <a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a>
-                </div>
-            </li>
+                    <a href="#" class="btn btn-warning btn-sm mr-3 rounded-pill">Upgrade Account</a>
+                </li>
+                <li class="nav-item dropdown mr-4">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hello {{ user }}!
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'profile' %}">프로필</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a>
+                    </div>
+                </li>
             {% else %}
-            <li class="nav-item">
-                <a href="{% url 'signup' %}" class="btn btn-success mr-3 rounded-pill">회원가입</a>
-            </li>
+                <li class="nav-item">
+                    <a href="{% url 'signup' %}" class="btn btn-success mr-3 rounded-pill">회원가입</a>
+                    <a href="{% url 'login' %}" class="btn btn-success mr-3 rounded-pill">로그인</a>
+                </li>
             {% endif %}
 
 
         </ul>
     </div>
 </nav>
+<div class="" style="margin-top: 59px;">
 {% block content %}
 {% endblock %}
-
+</div>
 {% block script_2 %}
 {% endblock %}
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'mainapp/js/jquery-3.3.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'mainapp/js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'mainapp/js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'mainapp/js/mdb.min.js' %}"></script>
 
 {% block script_3 %}
 {% endblock %}
