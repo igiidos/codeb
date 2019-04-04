@@ -1,0 +1,96 @@
+{% extends 'mainapp/__base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block script_1 %}
+    <script>
+        $(document).ready(function(){
+            $('#runbtn').click(function(){
+                var content=$('#content').val();
+                $('.workwindow3').html(content);
+                alert($('#iframe_id').contents());
+
+
+                //$('#iframe_id').contentWindow.location.reload(true);
+
+
+
+                alert('done');
+            });
+
+        });
+    </script>
+{% endblock script_1 %}
+    
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/accounts_style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+            #workspace {
+                background-color: aquamarine;
+                margin: 0;
+                height: 800px;
+            }
+            body{
+                margin: 0;
+            }
+            #content{
+                width: 100%;
+                
+            }
+        </style>
+{% endblock %}
+
+{% block content %}
+JS TEST!
+    <div id="workspace">
+        <div class='row'>
+            <div class="col-sm-4 workwindow1" style="background-color: red">
+                <h3>introduction</h3>
+            </div>
+            <div class="col-sm-4 workwindow2" style="background-color: green">
+                <form class="" action="">
+                        <textarea class="" name="content" id="content" cols="30" rows="10"></textarea>
+                </form>
+                <div>
+                    <button id="runbtn" class="btn btn-default" >run</button>
+                </div>
+            </div>
+            <div class="col-sm-4 workwindow3" style="background-color: yellow">
+                <iframe id="iframe_id" src="{% url 'js_lesson' %}" frameborder="0">
+                    
+                </iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 footer">footer</div>
+            <div class="col-sm-4 footer">
+                <button class="btn btn-warning pull-left" type="button">back</button>
+                <button class="btn btn-warning pull-right" type="button">next</button>
+            </div>
+            <div class="col-sm-4 footer">footer</div>
+
+        </div>
+    </div>
+{% endblock %}<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+</body>
+</html>

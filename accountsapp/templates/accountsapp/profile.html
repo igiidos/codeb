@@ -1,0 +1,32 @@
+{% extends 'mainapp/__base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/accounts_style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-primary font-weight-bold">{{ user }}</h5>
+                        <p>아이디 : {{ user.username }}</p>
+                        <p>E-mail : {{ user.email }}</p>
+                        <div class="mt-5 text-center">
+                            <a href="#" class="btn btn-primary">비밀번호번경</a>
+                            <a href="#" class="btn btn-success">이메일변경</a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

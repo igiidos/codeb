@@ -1,0 +1,70 @@
+{% extends 'mainapp/__base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>HTML LIST</title>
+{% endblock %}
+
+{% block style %}
+
+
+{% endblock %}
+{% block script_1 %}
+{% endblock %}
+
+{% block content %}
+    <div class="row p-4">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">AJAX to inner div</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">jquery AJAX to DIV</h6>
+                    <p class="card-text">에디터의 내용을 ajax를 이용하여 다른 div로 jquery html update를 이용한 에디터 결과 예시</p>
+                    <a href="{% url 'html_editor1' %}" class="card-link">보러가기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script_2 %}
+
+{% endblock %}
+
+{% block script_3 %}
+
+{% endblock %}

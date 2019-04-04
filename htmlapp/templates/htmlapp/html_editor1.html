@@ -1,0 +1,79 @@
+{% extends 'mainapp/__base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>ACE in Action</title>
+{% endblock %}
+
+{% block style %}
+
+    <style type="text/css" media="screen">
+        #editor {
+
+            height: 400px;
+        }
+    </style>
+{% endblock %}
+{% block script_1 %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div id="editor" class="col-6 border"></div>
+        <div class="border border-primary col-6" id="result">
+
+        </div>
+        <div class="col8">
+            <iframe sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals" src="#" class=""></iframe>
+        </div>
+    </div>
+    <button class="btn btn-success" type="button" id="editor_button">넘어가라</button>
+
+{% endblock %}
+
+{% block script_2 %}
+    <script src="{% static 'mainapp/ace/src-noconflict/ace.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'mainapp/ace/src-noconflict/ext-language_tools.js' %}"></script>
+
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/html");
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: false
+        });
+
+
+    </script>
+    {#    <script src="{% static 'mainapp/ace/show_own_source.js' %}"></script>#} <!-- 이거 지금 보이는 페이지 코드 다보여주는 스크립트 -->
+
+
+
+{% endblock %}
+
+{% block script_3 %}
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        var j = jQuery.noConflict();
+        j('#editor_button').click(function () {
+            var edit = editor.getValue();
+
+            j.ajaxSetup({
+                    headers: { "X-CSRFToken": '{{csrf_token}}' }
+                });
+            j.ajax({
+                    url: '{% url 'add_text_json' %}',
+                    type: 'POST',
+                    data: {
+                        edit : edit
+                    },
+                    success: function (html) {
+                        var contexts = html.contexts;
+                        j('#result').html(contexts)
+                    }
+                })
+        })
+    </script>
+{% endblock %}

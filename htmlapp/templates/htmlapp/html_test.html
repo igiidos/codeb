@@ -1,0 +1,59 @@
+{% extends 'mainapp/__base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>ACE in Action</title>
+{% endblock %}
+
+{% block style %}
+
+    <style type="text/css" media="screen">
+        body {
+            overflow: hidden;
+        }
+        #editor {
+            margin: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+{% endblock %}
+{% block script_1 %}
+{% endblock %}
+
+{% block content %}
+    <div id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}</div>
+{% endblock %}
+
+{% block script_2 %}
+    <script src="{% static 'mainapp/ace/src-noconflict/ace.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'mainapp/ace/src-noconflict/ext-language_tools.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script>
+        // trigger extension
+        ace.require("ace/ext/language_tools");
+        var editor = ace.edit("editor");
+        editor.session.setMode("ace/mode/html");
+        editor.setTheme("ace/theme/tomorrow");
+        // enable autocompletion and snippets
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: false
+        });
+    </script>
+
+    <script src="{% static 'mainapp/ace/show_own_source.js' %}"></script>
+
+
+{% endblock %}
+
+{% block script_3 %}
+{% endblock %}
